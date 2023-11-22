@@ -3,6 +3,7 @@ import { TaskForm, TaskList } from './components/index.js';
 
 function App() {
 	const [tasks, setTasks] = useState(
+		// Guarda las tareas en el almacenamiento local
 		JSON.parse(localStorage.getItem('tasks')) || [],
 	);
 	const [currentTasks, setCurrentTasks] = useState([]);
@@ -14,6 +15,24 @@ function App() {
 
 	const deleteTask = taskId => {
 		setTasks(tasks.filter(task => task.id !== taskId));
+	};
+
+	const editTask = (taskId, updatedTask) => {
+		// Encuentra la tarea a editar
+		const index = tasks.findIndex((task) => task.id === taskId);
+	
+		if (index !== -1) {
+		  // Copia el array actual de tareas
+			const newTasks = [...tasks];
+	
+		  // Actualiza la tarea en el nuevo array
+			newTasks[index] = updatedTask;
+
+			console.log(newTasks)
+
+		  // Establece el nuevo array de tareas
+			setTasks(newTasks);
+		}
 	};
 
 	const handleChangeFilter = e => {
@@ -40,10 +59,11 @@ function App() {
 					value={searchString}
 					onChange={handleChangeFilter}
 				/>
-
-				<TaskForm addTask={addTask} />
+			
+				<TaskForm addTask={addTask} editTask={editTask} edit={false}/>
+				
 			</div>
-			<TaskList tasks={currentTasks} deleteTask={deleteTask} />
+			<TaskList tasks={currentTasks} deleteTask={deleteTask} addTask={addTask} editTask={editTask}/>
 		</>
 	);
 }
