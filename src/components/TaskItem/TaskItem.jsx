@@ -1,8 +1,9 @@
 import React from 'react'
+import './TaskItem.css'
 
 const TaskItem = ({tasks, deleteTask}) => {
     return (
-        <div>
+        <div className='item'>
             <h2>{tasks.title}</h2>
             <p>{tasks.description}</p>
             <span>{tasks.creatAt}</span>

@@ -34,7 +34,7 @@ function App() {
 	return (
 		<>
 			<div className='controls'>
-				<input
+				<input id='inputBuscar'
 					type='text'
 					placeholder='Escribe para buscar...'
 					value={searchString}

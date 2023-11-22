@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { FaPlusCircle } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid';
+import './TaskForm.css'
+import 'animate.css'
 
 
 const TaskForm = ({addTask}) => {
@@ -26,7 +28,7 @@ const TaskForm = ({addTask}) => {
 
     return (
         <div>
-            <button onClick={handleOpenModal}>Crear tarea <FaPlusCircle/></button>
+            <button id='btnCrearTarea' onClick={handleOpenModal}>Crear tarea <FaPlusCircle/></button>
             {
                 isOpenModal
                 &&
