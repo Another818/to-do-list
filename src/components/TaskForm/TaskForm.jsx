@@ -104,7 +104,9 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 										</label>
 									</div>
 									<div className='btn-container'>
-										<button onClick={handleCloseModal}>Cancelar</button>
+										<button type='button' onClick={handleCloseModal}>
+											Cancelar
+										</button>
 										<button type='submit'>Confirmar</button>
 									</div>
 								</form>
@@ -145,7 +147,9 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 									</div>
 
 									<div className='btn-container'>
-										<button onClick={handleCloseModal}>Cancelar</button>
+										<button type='button' onClick={handleCloseModal}>
+											Cancelar
+										</button>
 										<button type='submit'>Agregar</button>
 									</div>
 								</form>
