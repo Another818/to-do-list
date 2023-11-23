@@ -4,8 +4,17 @@ import { FaPlusCircle } from 'react-icons/fa';
 import './TaskForm.css';
 
 const TaskForm = ({ addTask, editTask, edit, task }) => {
+
+	// Se setea y toma la información de checkbox dependiendo si el usuario esta editando o agregando una tarea
 	const [isChecked, setIsChecked] = useState(false);
+	const [isCheckedEdit, setIsCheckedEdit] = useState(false);
+
 	const [isOpenModal, setIsOpenModal] = useState(false);
+
+	
+	const handleSetInitialCheck = () =>{
+		setIsCheckedEdit(task.checkbox)
+	}
 
 	const handleOpenModal = () => {
 		setIsOpenModal(true);
@@ -15,16 +24,26 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 		setIsOpenModal(false);
 	};
 
+	const handleTwoFunction = () =>{
+		handleOpenModal()
+		handleSetInitialCheck()
+	}
+
+	const handleIsCheckedEdit = e => {
+		setIsCheckedEdit(e.target.checked);
+	};
+
 	const handleIsChecked = e => {
 		setIsChecked(e.target.checked);
 	};
+
 
 	const handleSubmitTask = e => {
 		if (edit === true) {
 			e.preventDefault();
 			const title = e.target.title.value;
 			const description = e.target.description.value;
-			const checkbox = isChecked;
+			const checkbox = isCheckedEdit;
 			const taskForm = {
 				title,
 				description,
@@ -54,7 +73,7 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 	return (
 		<div className='container-form'>
 			{edit ? (
-				<button onClick={handleOpenModal}>
+				<button onClick={handleTwoFunction}>
 					Editar <FaPlusCircle />
 				</button>
 			) : (
@@ -94,8 +113,8 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 										<input
 											type='checkbox'
 											id='cbox1'
-											checked={isChecked}
-											onChange={handleIsChecked}
+											checked={isCheckedEdit}
+											onChange={handleIsCheckedEdit}
 										/>
 										<label htmlFor='cbox1'>
 											{isChecked
