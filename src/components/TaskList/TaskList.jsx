@@ -7,7 +7,7 @@ function TaskList({ tasks, deleteTask, addTask, editTask }) {
 	return (
 		<div className='list'>
 			{tasks.length === 0 ? (
-				<h2>Aun no has ingresado tareas.</h2>
+				<h2>Aun no has ingresado tareas ❌</h2>
 			) : (
 				tasks.map(task => (
 					<TaskItem
