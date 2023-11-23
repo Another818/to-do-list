@@ -29,7 +29,7 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 				title,
 				description,
 				checkbox,
-				createAt: new Date().toDateString(),
+				createAt: new Date().toLocaleDateString('es-AR'),
 				id: task.id,
 			};
 			editTask(task.id, taskForm);
@@ -43,7 +43,7 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 				title,
 				description,
 				checkbox,
-				createAt: new Date().toDateString(),
+				createAt: new Date().toLocaleDateString('es-AR'),
 				id: uuidv4(),
 			};
 			addTask(task);
