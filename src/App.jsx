@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TaskForm, TaskList } from './components/index.js';
+import './App.css';
 
 function App() {
 	const [tasks, setTasks] = useState(
@@ -19,18 +20,18 @@ function App() {
 
 	const editTask = (taskId, updatedTask) => {
 		// Encuentra la tarea a editar
-		const index = tasks.findIndex((task) => task.id === taskId);
-	
+		const index = tasks.findIndex(task => task.id === taskId);
+
 		if (index !== -1) {
-		  // Copia el array actual de tareas
+			// Copia el array actual de tareas
 			const newTasks = [...tasks];
-	
-		  // Actualiza la tarea en el nuevo array
+
+			// Actualiza la tarea en el nuevo array
 			newTasks[index] = updatedTask;
 
-			console.log(newTasks)
+			console.log(newTasks);
 
-		  // Establece el nuevo array de tareas
+			// Establece el nuevo array de tareas
 			setTasks(newTasks);
 		}
 	};
@@ -52,6 +53,7 @@ function App() {
 
 	return (
 		<>
+			<h1>Lista de tareas</h1>
 			<div className='controls'>
 				<input
 					type='text'
@@ -59,11 +61,14 @@ function App() {
 					value={searchString}
 					onChange={handleChangeFilter}
 				/>
-			
-				<TaskForm addTask={addTask} editTask={editTask} edit={false}/>
-				
 			</div>
-			<TaskList tasks={currentTasks} deleteTask={deleteTask} addTask={addTask} editTask={editTask}/>
+			<TaskForm addTask={addTask} editTask={editTask} edit={false} />
+			<TaskList
+				tasks={currentTasks}
+				deleteTask={deleteTask}
+				addTask={addTask}
+				editTask={editTask}
+			/>
 		</>
 	);
 }
