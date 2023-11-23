@@ -117,7 +117,7 @@ const TaskForm = ({ addTask, editTask, edit, task }) => {
 											onChange={handleIsCheckedEdit}
 										/>
 										<label htmlFor='cbox1'>
-											{isChecked
+											{isCheckedEdit
 												? 'Tarea completada ✅'
 												: 'Tarea por completar ⏳'}
 										</label>
