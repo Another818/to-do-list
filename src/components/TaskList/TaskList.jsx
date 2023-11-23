@@ -9,13 +9,14 @@ function TaskList({ tasks, deleteTask, addTask, editTask }) {
 			{tasks.length === 0 ? (
 				<h2>Aun no has ingresado tareas ❌</h2>
 			) : (
-				tasks.map(task => (
+				tasks.map((task, index) => (
 					<TaskItem
 						tasks={task}
 						key={task.id}
 						deleteTask={deleteTask}
 						addTask={addTask}
 						editTask={editTask}
+						index={index}
 					/>
 				))
 			)}

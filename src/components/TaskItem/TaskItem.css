@@ -1,14 +1,16 @@
 @keyframes Fade {
 	0% {
-		transform: translateX(-30%);
+		scale: 1;
+	}
+	50% {
+		scale: 0.97;
 	}
 	100% {
-		transform: translateX(0);
+		scale: 1;
 	}
 }
 
 .item {
-	animation: Fade 0.8s;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 5px;
