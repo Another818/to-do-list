@@ -1,0 +1,25 @@
+@keyframes Fade {
+	0% {
+		scale: 1;
+	}
+	50% {
+		scale: 0.97;
+	}
+	100% {
+		scale: 1;
+	}
+}
+
+.item {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	width: 300px;
+	max-width: 100%;
+	box-shadow:
+		rgba(0, 0, 0, 0.15) 0px 15px 25px,
+		rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+	display: flex;
+	flex-direction: column;
+}
