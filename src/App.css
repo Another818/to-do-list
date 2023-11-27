@@ -14,18 +14,34 @@ h1 {
 	text-align: center;
 }
 
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .controls {
 	background-color: #fff;
 	padding: 20px;
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	gap: 5px;
 }
 
-.controls input {
+.check-container{
+	margin: 10px;
+}
+
+.filter-container{
+	display: flex;
+}
+
+.filter-container button{
+	width: auto;
+	height: 50px;
+}
+
+.search-bar{
 	padding: 4px 8px;
 	width: 300px;
+	height: 50px;
 }
 
 button {
